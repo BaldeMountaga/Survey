@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Survey Form</title>
+        <!--<script type="text/javascript" src="validate.js" ></script>-->
+        <script>
+            function validate(){
+                var name = document.myform.fname.value;
+                var email = document.myform.email.value;
+
+                if(name==null || name ==""){
+                    alert("Name can't be empty");
+                    return false;
+                }else if(email==null || email==""){
+                    alert("Password cannot be empty");
+                    return false;
+                }
+            }
+        </script>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            
+           body{
+                max-width:100%;
+                display: block;
+                height: auto; 
+                background-image: url('Campus.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: auto;
+            }
+            #title{
+                font-family: serif;
+                font-size: 20px;
+                text-align: center;
+                color: white;
+            }
+            #description{
+                font-family: sans-serif;
+                text-align: center;
+                color: white;
+                font-size: 15px;
+                font-style: italic;
+            }
+            #survey-form{
+                position: relative;
+                margin: 0 auto;
+                width: 40%;
+                padding-left: 50px;
+                padding-right: 50px;
+                text-align: left;
+                background-color: rgba(12, 1, 1, 0.61);
+                color: white;
+                /*background: transparent;*/
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 18px;    
+            }
+            select{
+                width: 100%;
+                margin: auto;
+                padding: 8px 20px;
+                /*margin: 8px 0;*/
+                /*display: inline-block;*/
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 8px;
+            }
+            input[type=email], input[type=number], input[type=text]{
+                width: 100%;
+                padding: 8px 20px;
+                margin: auto;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 8px;
+            }
+           
+           #submit{
+            width: 100%;
+            margin: auto;
+            padding: 15px 20px 15px 20px;
+            margin-top: 25px;
+            margin-bottom: 50px;
+            border-radius: 5px;
+            background-color: #4c91b9d7;
+           /* background-color: rgb(105, 179, 107); */
+            /*background-color: rgb(83, 137, 238);*/
+            /*background-color: #4CAF50;*/
+            border: none;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 17px;
+            margin-top: 8px;
+           }
+           #submit:hover{
+               transform: scale(1.1);
+               background-color: #0a3752d7;
+           }
+           
+           input[type="radio"], input[type ="checkbox"]{
+                width: 20px;
+                height: 20px;
+                cursor:auto;
+                appearance: none;
+                margin-top: 8px;
+           }
+           /*input[type=text], input[type= "email"], input[type="radio"], input[type ="checkbox"], input[type="number"], textarea, select:focus {
+            background-color: rgb(82, 168, 157);
+            color: white;  /* Ask not working as expected the text box beeing focused all the time.
+            }*/
+           .textarea{
+               width: 100%;
+               margin: auto;
+               margin-top: 8px;
+           }
+           option{
+               background: #4c91b9d7;
+               color: white;
+               /*use JQuery to allow all the options to be diplayed when hovered*/
+           }
+           .sp{
+               color: coral;
+           }
+        </style>
+        
+    </head>
+    <body>
+        <main>
+            <div> 
+                <header>
+                    <h1 id="title">National Institute Of Information Technology Survey Form</h1>
+                    <p id="description">Thank you for taking the time to help us improve our school</p>
+                </header>
+                <form  id="survey-form" name="myForm" method="POST" target="_blanc" action="validatesurvey.html" onsubmit="return (validate());">
+                    <br>
+                    <label for="name"><sup class="sp">*</sup> Name: <br/></label>
+                    <input type="text" id="name" name="fname" placeholder="Enter your name">
+                    <br><br/>
+                    <label for="eml"><sup class="sp">*</sup> Email: <br/></label>
+                    <input type="email" id="eml" name="email" placeholder="Enter your Email" >
+                    <br><br/>
+                    <label for="yrs"> Age: (optional)<br/></label>
+                    <input type="number"  id="yrs" name="age" placeholder="Age" min="1" max="1000">
+                    <br><br/>
+                    <label for="role">Which option best describes your current role:<br/></label>
+                    <select value="select an option" id="role">
+                        <option >Student</option>
+                        <option>Full Time job</option>
+                        <option checked>Full Time learner</option>
+                        <option>Prefer not to say</option>
+                        <option>Other</option>
+                    </select>
+                    <br><br/>
+                    <label for="reco"><sup class="sp">*</sup> How much like is that you would recommend NIIT to a friend?:<br/></label>
+                    <input type="radio" name="recom" id="reco1">Definetly<br>
+                    <input type="radio" name="recom" id="reco2">Maybe<br>
+                    <input type="radio" name="recom" id="reco3">Not sure<br>
+                    <br>
+                    <label for="like">What do you like most in NIIT:<br/></label>
+                    <select value="select an option" id="like">
+                        <option>Challenge</option>
+                        <option selected>Project</option>
+                        <option>Community</option>
+                        <option>Open Source</option>
+                    </select>
+                    <br><br/> 
+                    <label for="chec">What would you like to see improved in the future all that apply<br/></label>
+                        <input type="checkbox" name="check" id="chec" checked> Java Project<br>
+                        <input type="checkbox" name="check" id="chec"> Front-end Projects<br>
+                        <input type="checkbox" name="check" id="chec" checked> Back-end Courses<br>
+                        <input type="checkbox" name="check" id="chec"> Hours of Teaching<br>
+                        <input type="checkbox" name="check" id="chec"> More Personal Coaching<br>
+                        <input type="checkbox" name="check" id="chec"> Respect The Semester Times<br>                                             
+                    <br>
+                    <label for="sugg">Any Comment or Suggestion?<br/></label>
+                    <textarea class="textarea" id="sugg" rows="6" cols="40" placeholder="Enter your comment her..."></textarea>
+                    <br><br/>
+                    <input type="submit" id="submit" name="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
+<!--
+    Question not answers are:
+    6,8,10,12,13
+    
+-->
+<!--Try another way to inlarge the input types, select, and so on without using width= 90% it is no more practical?
+    I did not arrived to use the checked type?
+    is it possible the chechboxes has the same name I think no!
+-->
+<!--try to put javascript on sumbmit button-->
